@@ -1,0 +1,24 @@
+{
+  "name": "2bucket",
+  "module": "lib/main.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev": "bun --watch lib/main.ts",
+    "start": "bun run lib/main.ts"
+  },
+  "dependencies": {
+    "@types/express-fileupload": "^1.5.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.2"
+  }
+}
