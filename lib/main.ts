@@ -13,11 +13,13 @@ const app = express();
 app.use(express.json());
 app.set("trust proxy", true);
 app.use(
+  // set your origin confs
   cors({
     origin: "*",
   }),
 );
 
+app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }));
 const router = new RouterHandler(new Controller());
 app.use(express.json());
 app.use(
@@ -30,7 +32,7 @@ app.use(
 
 app.use(v1, auth, router.handler);
 
-app.listen(PORT, () => {
+app.listen(4000, "0.0.0.0", () => {
   console.info(
     `Service running on port ${PORT}, in ${env === "prod" ? "production" : "development"} environment.`,
   );
