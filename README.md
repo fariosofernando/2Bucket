@@ -1,19 +1,25 @@
-**2Bucket** is a lightweight, self-hosted file storage service inspired by the concept of “buckets” in object storage.
-With it, anyone can spin up their own bucket system on a VPS or private server — no third-party services required.
+# 2Bucket
 
-### ✨ Features
+2Bucket is a lightweight, self-hosted file storage service designed to replace complex cloud object storage providers like AWS S3. With it, you can spin up your own secure bucket infrastructure on any VPS or private server in minutes — keeping full control over your data.
 
-* 📁 **Independent buckets** – each bucket is an isolated storage space.
-* 🗂️ **Flexible folder structure** – organize files in custom directories (`company/user/avatars/...`).
-* 🔑 **Token-based authentication (WIP)** – control access to your files.
-* ⬆️ **File upload** – upload files with support for:
+## Features
 
-  * choosing the target folder
-  * optional `rename` flag to store files with a custom name
-* ⬇️ **Direct download** – retrieve files easily by bucket and path.
-* 🐳 **Docker-ready** – run anywhere with a simple container setup.
+- 📁 **Independent Buckets:** Each bucket acts as an isolated, sandboxed storage space driven by a unique UUID.
+- 🗂️ **Flexible Folder Structure:** Organize files in custom nested directories (e.g., `companies/123/documents/`).
+- 🔑 **Token-Based Authentication:** Protect your endpoints with a secure multi-token bearer authentication system.
+- ⬆️ **Advanced Uploads:** Built-in support for uploading files, targeted sub-folders, and deterministic renaming flags.
+- 🐳 **Docker Native:** Fully containerized architecture with multi-stage builds and watch-mode development configurations.
 
-### 💡 Why 2Bucket?
+---
 
-2Bucket was built for developers and teams who want a **minimal, open-source, and fully controlled storage solution**.
-Forget S3, Google Cloud, or Azure — here, *you own the infrastructure*.
+## 🛠️ Infrastructure Setup
+
+### Environment Variables (`.env`)
+Create a `.env` file in the root directory:
+
+```env
+PORT=4000
+SERVICE_ENV=prod # Use 'dev' or 'prod'
+VALID_TOKENS=your_secure_token_1,your_secure_token_2
+BUCKET_PATH=/app/files
+```
