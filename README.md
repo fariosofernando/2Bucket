@@ -1,3 +1,14 @@
+## Client SDK & Resilience
+
+For integration with your applications, use the official **[2bucket-client](https://github.com/fariosofernando/2bucket-client)**. 
+
+The SDK is built to make your architecture bulletproof against downtime. It implements a **Store and Forward** mechanism: if your central 2Bucket server goes offline or becomes unreachable, the client automatically catches the upload, saves the file in a temporary local volume, and synchronization happens in the background as soon as the server is healthy again.
+
+```bash
+# Install directly in your microservices via Bun:
+bun add github:fariosofernando/2bucket-client
+```
+
 # 2Bucket
 
 2Bucket is a lightweight, self-hosted file storage service designed to replace complex cloud object storage providers like AWS S3. With it, you can spin up your own secure bucket infrastructure on any VPS or private server in minutes — keeping full control over your data.
